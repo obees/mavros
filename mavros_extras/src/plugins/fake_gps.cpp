@@ -73,14 +73,14 @@ public:
 		fp_nh.param<int>("fix_type", ft_i, utils::enum_value(GPS_FIX_TYPE::NO_GPS));
 		fix_type = static_cast<GPS_FIX_TYPE>(ft_i);
 		fp_nh.param("gps_rate", _gps_rate, 5.0);		// GPS data rate of 5hz
-		gps_rate: _gps_rate;
-		fp_nh.param("eph", eph, 2.0);
-		fp_nh.param("epv", epv, 2.0);
+		gps_rate = _gps_rate;
+		fp_nh.param("eph", eph, 0.1);   // initially 2.0
+		fp_nh.param("epv", epv, 0.1);   // initially 2.0
 		fp_nh.param<int>("satellites_visible", satellites_visible, 5);
 
 		// default origin/starting point: Zürich geodetic coordinates
-		fp_nh.param("geo_origin/lat", origin_lat, 47.3667);	// [degrees]
-		fp_nh.param("geo_origin/lon", origin_lon, 8.5500);	// [degrees]
+		fp_nh.param("geo_origin/lat", origin_lat, 47.397742);	// [degrees]
+		fp_nh.param("geo_origin/lon", origin_lon, 8.545594);	// [degrees]
 		fp_nh.param("geo_origin/alt", origin_alt, 408.0);	// [meters - height over the WGS-84 ellipsoid]
 
 		// init map origin with geodetic coordinates
